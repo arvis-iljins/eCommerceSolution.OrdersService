@@ -1,0 +1,26 @@
+# Build output
+bin/
+obj/
+
+# NuGet
+*.nupkg
+*.snupkg
+*.nuget.props
+*.nuget.targets
+project.nuget.cache
+project.assets.json
+
+# IDE / Editor
+*.lscache
+.vscode/
+.vs/
+*.user
+*.suo
+*.swp
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db

@@ -11,5 +11,6 @@
       Include="Microsoft.Extensions.DependencyInjection.Abstractions"
       Version="8.0.1"
     />
+    <PackageReference Include="MongoDB.Driver" Version="3.8.0" />
   </ItemGroup>
 </Project>

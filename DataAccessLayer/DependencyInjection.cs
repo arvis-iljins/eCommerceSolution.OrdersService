@@ -1,5 +1,6 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MongoDB.Driver;
 
 namespace eCommerce.OrderMicroservice.DataAccessLayer;
 
@@ -10,7 +11,19 @@ public static class DependencyInjection
         IConfiguration configuration
     )
     {
-        //TO DO: Add data access layer services into the IoC container
+        var connectionStringTemplate = configuration.GetConnectionString("MongoDB");
+        var connectionString = connectionStringTemplate!
+            .Replace("$MONGO_HOST", Environment.GetEnvironmentVariable("MONGO_HOST")!)
+            .Replace("$MONGO_PORT", Environment.GetEnvironmentVariable("MONGO_PORT")!);
+
+        services.AddSingleton<IMongoClient, MongoClient>(provider => new MongoClient(
+            connectionString
+        ));
+        services.AddScoped<IMongoDatabase>(provider =>
+        {
+            var mongoClient = provider.GetRequiredService<IMongoClient>();
+            return mongoClient.GetDatabase("Orders");
+        });
 
         return services;
     }
