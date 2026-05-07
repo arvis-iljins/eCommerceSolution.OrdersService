@@ -1,0 +1,15 @@
+/Users/arvisiljins/Desktop/eCommerceSolution.OrdersService/BusinessLogicLayer/bin/Debug/net10.0/BusinessLogicLayer.deps.json
+/Users/arvisiljins/Desktop/eCommerceSolution.OrdersService/BusinessLogicLayer/bin/Debug/net10.0/BusinessLogicLayer.dll
+/Users/arvisiljins/Desktop/eCommerceSolution.OrdersService/BusinessLogicLayer/bin/Debug/net10.0/BusinessLogicLayer.pdb
+/Users/arvisiljins/Desktop/eCommerceSolution.OrdersService/BusinessLogicLayer/bin/Debug/net10.0/DataAccessLayer.dll
+/Users/arvisiljins/Desktop/eCommerceSolution.OrdersService/BusinessLogicLayer/bin/Debug/net10.0/DataAccessLayer.pdb
+/Users/arvisiljins/Desktop/eCommerceSolution.OrdersService/BusinessLogicLayer/obj/Debug/net10.0/BusinessLogicLayer.csproj.AssemblyReference.cache
+/Users/arvisiljins/Desktop/eCommerceSolution.OrdersService/BusinessLogicLayer/obj/Debug/net10.0/BusinessLogicLayer.GeneratedMSBuildEditorConfig.editorconfig
+/Users/arvisiljins/Desktop/eCommerceSolution.OrdersService/BusinessLogicLayer/obj/Debug/net10.0/BusinessLogicLayer.AssemblyInfoInputs.cache
+/Users/arvisiljins/Desktop/eCommerceSolution.OrdersService/BusinessLogicLayer/obj/Debug/net10.0/BusinessLogicLayer.AssemblyInfo.cs
+/Users/arvisiljins/Desktop/eCommerceSolution.OrdersService/BusinessLogicLayer/obj/Debug/net10.0/BusinessLogicLayer.csproj.CoreCompileInputs.cache
+/Users/arvisiljins/Desktop/eCommerceSolution.OrdersService/BusinessLogicLayer/obj/Debug/net10.0/Business.450209FB.Up2Date
+/Users/arvisiljins/Desktop/eCommerceSolution.OrdersService/BusinessLogicLayer/obj/Debug/net10.0/BusinessLogicLayer.dll
+/Users/arvisiljins/Desktop/eCommerceSolution.OrdersService/BusinessLogicLayer/obj/Debug/net10.0/refint/BusinessLogicLayer.dll
+/Users/arvisiljins/Desktop/eCommerceSolution.OrdersService/BusinessLogicLayer/obj/Debug/net10.0/BusinessLogicLayer.pdb
+/Users/arvisiljins/Desktop/eCommerceSolution.OrdersService/BusinessLogicLayer/obj/Debug/net10.0/ref/BusinessLogicLayer.dll
