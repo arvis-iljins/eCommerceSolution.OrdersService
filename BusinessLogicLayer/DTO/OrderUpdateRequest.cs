@@ -1,14 +1,10 @@
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace BusinessLogicLayer.DTO
 {
     public record OrderUpdateRequest(
         Guid OrderID,
         Guid UserID,
         DateTime OrderDate,
-        List<OrderItemAddRequest> OrderItems
+        List<OrderItemUpdateRequest> OrderItems
     )
     {
         public OrderUpdateRequest()

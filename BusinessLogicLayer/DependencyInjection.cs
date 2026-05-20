@@ -1,3 +1,4 @@
+using BusinessLogicLayer.Mappers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -10,7 +11,7 @@ public static class DependencyInjection
         IConfiguration configuration
     )
     {
-        //TO DO: Add business logic layer services into the IoC container
+        services.AddAutoMapper(typeof(OrderAddRequestToOrderMappingProfile).Assembly);
 
         return services;
     }
