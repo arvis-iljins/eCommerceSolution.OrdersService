@@ -1,7 +1,7 @@
 namespace BusinessLogicLayer.DTO
 {
-    public class OrderAddRequest(
-        Guid UserId,
+    public record OrderAddRequest(
+        Guid UserID,
         DateTime OrderDate,
         List<OrderItemAddRequest> OrderItems
     )
