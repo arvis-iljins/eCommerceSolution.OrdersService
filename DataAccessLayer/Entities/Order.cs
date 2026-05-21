@@ -9,17 +9,22 @@ namespace DataAccessLayer.Entities
         [BsonRepresentation(BsonType.String)]
         public Guid _id { get; set; }
 
+        [BsonElement("OrderID")]
         [BsonRepresentation(BsonType.String)]
         public Guid OrderId { get; set; }
 
+        [BsonElement("UserID")]
         [BsonRepresentation(BsonType.String)]
         public Guid UserId { get; set; }
 
-        [BsonRepresentation(BsonType.DateTime)]
+        [BsonElement("OrderDate")]
         public DateTime OrderDate { get; set; }
 
+        [BsonElement("TotalBill")]
         [BsonRepresentation(BsonType.Double)]
         public decimal TotalAmount { get; set; }
+
+        [BsonElement("OrderItems")]
         public List<OrderItem> Items { get; set; } = [];
     }
 }

@@ -24,7 +24,7 @@ public static class DependencyInjection
         services.AddScoped<IMongoDatabase>(provider =>
         {
             var mongoClient = provider.GetRequiredService<IMongoClient>();
-            return mongoClient.GetDatabase("Orders");
+            return mongoClient.GetDatabase("OrdersDatabase");
         });
 
         services.AddScoped<IOrdersRepository, OrdersRepository>();

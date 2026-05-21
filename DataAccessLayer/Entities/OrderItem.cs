@@ -5,20 +5,19 @@ namespace DataAccessLayer.Entities
 {
     public class OrderItem
     {
-        [BsonId]
-        [BsonRepresentation(BsonType.String)]
-        public Guid _id { get; set; }
-
+        [BsonElement("ProductID")]
         [BsonRepresentation(BsonType.String)]
         public Guid ProductId { get; set; }
 
-        [BsonRepresentation(BsonType.Int32)]
+        [BsonElement("Quantity")]
         public int Quantity { get; set; }
 
+        [BsonElement("UnitPrice")]
         [BsonRepresentation(BsonType.Double)]
         public decimal UnitPrice { get; set; }
 
+        [BsonElement("TotalPrice")]
         [BsonRepresentation(BsonType.Double)]
-        public decimal TotalPrice => Quantity * UnitPrice;
+        public decimal TotalPrice { get; set; }
     }
 }
