@@ -1,3 +1,4 @@
+using BusinessLogicLayer.HttpClients;
 using eCommerce.OrderMicroservice.BusinessLogicLayer;
 using eCommerce.OrderMicroservice.DataAccessLayer;
 using eCommerce.OrdersMicroservice.API.Middleware;
@@ -27,6 +28,10 @@ builder.Services.AddCors(options =>
     });
 });
 
+builder.Services.AddHttpClient<UsersMicroserviceClient>(client =>
+{
+    client.BaseAddress = new Uri("http://localhost:5001");
+});
 var app = builder.Build();
 
 app.UseExceptionHandlingMiddleware();
