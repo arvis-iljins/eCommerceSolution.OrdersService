@@ -30,7 +30,9 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddHttpClient<UsersMicroserviceClient>(client =>
 {
-    client.BaseAddress = new Uri("http://localhost:5001");
+    client.BaseAddress = new Uri(
+        $"http://{builder.Configuration["UsersMicroservice:Host"]}:{builder.Configuration["UsersMicroservice:Port"]}"
+    );
 });
 var app = builder.Build();
 

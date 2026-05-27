@@ -1,5 +1,6 @@
 using AutoMapper;
 using BusinessLogicLayer.DTO;
+using BusinessLogicLayer.HttpClients;
 using BusinessLogicLayer.ServiceContracts;
 using DataAccessLayer.Entities;
 using DataAccessLayer.RepositoryContracts;
@@ -11,6 +12,7 @@ namespace BusinessLogicLayer.Services
     public class OrdersService(
         IOrdersRepository ordersRepository,
         IMapper mapper,
+        UsersMicroserviceClient userMicroserviceClient,
         IValidator<OrderAddRequest> orderAddRequestValidator,
         IValidator<OrderItemAddRequest> orderItemAddRequestValidator,
         IValidator<OrderUpdateRequest> orderUpdateRequestValidator,
@@ -25,6 +27,8 @@ namespace BusinessLogicLayer.Services
             orderUpdateRequestValidator;
         private readonly IValidator<OrderItemUpdateRequest> _orderItemUpdateRequestValidator =
             orderItemUpdateRequestValidator;
+        private readonly UsersMicroserviceClient _userMicroserviceClient = userMicroserviceClient;
+
         private readonly IMapper _mapper = mapper;
         private IOrdersRepository _ordersRepository = ordersRepository;
 
@@ -45,9 +49,16 @@ namespace BusinessLogicLayer.Services
                 }
             }
 
-            var orderEntity = _mapper.Map<Order>(orderAddRequest);
-            var addedOrder = await _ordersRepository.AddOrder(orderEntity);
-            return _mapper.Map<OrderResponse?>(addedOrder);
+            var user = await _userMicroserviceClient.GetUserById(orderAddRequest.UserID);
+
+            if (user is not null)
+            {
+                var orderEntity = _mapper.Map<Order>(orderAddRequest);
+                var addedOrder = await _ordersRepository.AddOrder(orderEntity);
+                return _mapper.Map<OrderResponse?>(addedOrder);
+            }
+
+            throw new Exception($"User with ID {orderAddRequest.UserID} not found.");
         }
 
         public async Task<bool> DeleteOrder(Guid orderID)
@@ -98,9 +109,15 @@ namespace BusinessLogicLayer.Services
                 }
             }
 
-            var orderEntity = _mapper.Map<Order>(orderUpdateRequest);
-            var updatedOrder = await _ordersRepository.UpdateOrder(orderEntity);
-            return _mapper.Map<OrderResponse?>(updatedOrder);
+            var user = await _userMicroserviceClient.GetUserById(orderUpdateRequest.UserID);
+
+            if (user is not null)
+            {
+                var orderEntity = _mapper.Map<Order>(orderUpdateRequest);
+                var updatedOrder = await _ordersRepository.UpdateOrder(orderEntity);
+                return _mapper.Map<OrderResponse?>(updatedOrder);
+            }
+            throw new Exception($"User with ID {orderUpdateRequest.UserID} not found.");
         }
     }
 }
